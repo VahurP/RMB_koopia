@@ -38,3 +38,62 @@ button {
 button:hover {
     background-color: #357ab7;
 }
+
+#upload-container {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#upload-container input[type='file'],
+#upload-container input[type='text'] {
+  margin-bottom: 15px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#upload-container input[type='file']:focus,
+#upload-container input[type='text']:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+#upload-container input[type='submit'] {
+  background-color: #007BFF;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#upload-container input[type='submit']:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+#upload-container label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+#upload-container h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
