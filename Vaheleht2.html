@@ -1,0 +1,36 @@
+<!test>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<div id="respond">
+
+  <h3>Jäta kommentaar!</h3>
+
+  <form action="post_comment.php" method="post" id="commentform">
+
+    <label for="comment_author" class="required">Nimi</label>
+        </br>
+    <input type="text" name="comment_author" id="comment_author" value="" tabindex="1" required="required">
+    </br>
+    <label for="email" class="required">Email;</label>
+        </br>
+    <input type="email" name="email" id="email" value="" tabindex="2"
+    required="required">
+    
+    </br>
+    <label for="comment" class="required">Sinu kommentaar</label>
+        </br>
+    <textarea name="comment" id="comment" rows="10" tabindex="4"  required="required"></textarea>
+    </br>    
+    <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID" />
+    <input name="submit" type="submit" value="Sisesta kommentaar" />
+
+  </form>
+
+</div>
+
+</head>
+
+<body id="index" class="home">
+</body>
+</html>
