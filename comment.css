@@ -1,12 +1,12 @@
-
-#upload-container input[type='file']:focus,
-#upload-container input[type='text']:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  outline: none;
+#upload-container {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.5);;
 }
-}
-
+  
 #upload-container input[type='file'],
 #upload-container input[type='text'] {
   margin-bottom: 15px;
