@@ -8,22 +8,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     $check = getimagesize($_FILES["file"]["tmp_name"]);
     if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
+        echo "Fail on pilt - " . $check["mime"] . ".";
         $uploadOk = 1;
     } else {
-        echo "File is not an image.";
+        echo "Ei ole pilt";
         $uploadOk = 0;
     }
 
    
     if (file_exists($target_file)) {
-        echo "Sorry, file already exists.";
+        echo "Fail juba lisatud";
         $uploadOk = 0;
     }
 
     
     if ($_FILES["file"]["size"] > 2000000) {
-        echo "Sorry, your file is too large.";
+        echo "Fail ei tohi ületada 2MB";
         $uploadOk = 0;
     }
 
@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $imageFileType != "jpg" && $imageFileType != "png" &&
         $imageFileType != "jpeg" && $imageFileType != "gif"
     ) {
-        echo "Sorry, only JPG, JPEG, PNG, and GIF files are allowed.";
+        echo "Ainult JPG, JPEG, PNG ja GIF failid on lubatud";
         $uploadOk = 0;
     }
 
