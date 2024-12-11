@@ -8,15 +8,29 @@
 </head>
 <body>
   <h1>Laaditud pildid</h1>
-  <div id="imageGallery"></div>
+  <div id="imageGallery">
+    <!-- Server lisab siia laaditud pildid -->
+  </div>
   <button onclick="location.href='index.html'">Mine tagasi pealehele</button>
   <button onclick="location.href='pildi_postitus.html'">Mine järgmisele lehele</button>
 
   <script>
+    // Hangi serverilt üleslaaditud pildid
     fetch('/uploads')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('imageGallery').innerHTML = html;
+      .then(response => response.json())
+      .then(files => {
+        const gallery = document.getElementById('imageGallery');
+        files.forEach(file => {
+          const img = document.createElement('img');
+          img.src = `/uploads/${file}`;
+          img.alt = 'Uploaded Image';
+          img.style.maxWidth = '200px';
+          img.style.margin = '10px';
+          gallery.appendChild(img);
+        });
+      })
+      .catch(err => {
+        console.error('Piltide laadimine ebaõnnestus:', err);
       });
   </script>
 </body>
