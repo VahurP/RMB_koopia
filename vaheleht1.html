@@ -8,9 +8,16 @@
 </head>
 <body>
   <h1>Laaditud pildid</h1>
-  <p><img src="/uploads/1733877024406-717853570.jpeg" alt="Uploaded Image" style="max-width: 200px;"/>
-<!-- Uued pildid lisatakse siia automaatselt serveri poolt --></p>
+  <div id="imageGallery"></div>
   <button onclick="location.href='index.html'">Mine tagasi pealehele</button>
   <button onclick="location.href='pildi_postitus.html'">Mine järgmisele lehele</button>
+
+  <script>
+    fetch('/uploads')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('imageGallery').innerHTML = html;
+      });
+  </script>
 </body>
 </html>
