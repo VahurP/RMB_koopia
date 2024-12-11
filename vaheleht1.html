@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="et">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Teine Leht</title>
+  <title>Pildigalerii</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Laaditud pildid</h1>
-  <div id="imageGallery">
-    <!-- Server lisab siia laaditud pildid -->
-  </div>
+  <h1>Uploads kausta pildid</h1>
+  
+  <div id="gallery"></div>
+
   <button onclick="location.href='index.html'">Mine tagasi pealehele</button>
   <button onclick="location.href='pildi_postitus.html'">Mine järgmisele lehele</button>
 
   <script>
-    // Hangi serverilt üleslaaditud pildid
-    fetch('/uploads')
-      .then(response => response.json())
-      .then(files => {
-        const gallery = document.getElementById('imageGallery');
-        files.forEach(file => {
-          const img = document.createElement('img');
-          img.src = `/uploads/${file}`;
-          img.alt = 'Uploaded Image';
-          img.style.maxWidth = '200px';
-          img.style.margin = '10px';
-          gallery.appendChild(img);
+    async function loadImages() {
+      try {
+        const response = await fetch('https://api.github.com/repos/vahurp/RMB/contents/uploads');
+        const data = await response.json();
+        const gallery = document.getElementById('gallery');
+        
+        data.forEach(file => {
+          if (file.type === 'file' && file.name.match(/\.(jpg|jpeg|png|gif)$/)) {
+            const img = document.createElement('img');
+            img.src = file.download_url;
+            img.alt = file.name;
+            img.style.maxWidth = '200px';
+            img.style.margin = '10px';
+            gallery.appendChild(img);
+          }
         });
-      })
-      .catch(err => {
+      } catch (err) {
         console.error('Piltide laadimine ebaõnnestus:', err);
-      });
+      }
+    }
+
+    loadImages();
   </script>
 </body>
 </html>
